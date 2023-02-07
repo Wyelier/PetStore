@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
         ArrayAdapter<String>mAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, layouts);
         setContentView(R.layout.activity_main);
+        // дописать из https://github.com/Wyelier/MultiScreen/blob/master/app/src/main/java/com/example/multiscreen/MainActivity.java
 
 
         mProgressBar = findViewById(R.id.progressBar);
