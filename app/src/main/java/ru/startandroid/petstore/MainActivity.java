@@ -15,6 +15,9 @@ import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
+import java.io.IOException;
+
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -58,14 +61,25 @@ public class MainActivity extends AppCompatActivity {
             Call.enqueue(new Callback<Pet>() {
                 @Override
                 public void onResponse(Call<Pet> call, Response<Pet> response) {
-                    Pet pet = response.body();
-                    String text = "Вашего питомца зовут " + pet.getName();
-                    mTextView.setText(text);
-                    mProgressBar.setVisibility(View.INVISIBLE);
-                    Picasso.with(MainActivity.this)
-                            .load(pet.getPhotoUrls().get(0))
-                            .resize(600, 600)
-                            .into(mImageView);
+                    if (response.isSuccessful()) {
+                        Pet pet = response.body();
+                        String text = "Вашего питомца зовут " + pet.getName();
+                        mTextView.setText(text);
+                        mProgressBar.setVisibility(View.INVISIBLE);
+                        Picasso.with(MainActivity.this)
+                                .load(pet.getPhotoUrls().get(0))
+                                .resize(600, 600)
+                                .into(mImageView);
+                    } else {
+                        ResponseBody errorBody = response.errorBody();
+                        try {
+                            Toast.makeText(MainActivity.this, errorBody.string(),
+                                    Toast.LENGTH_SHORT).show();
+                            mProgressBar.setVisibility(View.INVISIBLE);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
                 }
 
                 @Override

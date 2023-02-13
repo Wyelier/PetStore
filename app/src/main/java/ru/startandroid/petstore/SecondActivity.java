@@ -11,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class SecondActivity extends AppCompatActivity {
     private ProgressBar mProgressBar;
-    private TextView mTextView;
     private EditText mEditTextID;
     private EditText mEditTextUrl;
     private EditText mEditTextName;
