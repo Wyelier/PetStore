@@ -2,6 +2,7 @@ package ru.startandroid.petstore;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -31,14 +32,11 @@ public class MainActivity extends AppCompatActivity {
     private ImageView mImageView;
     private Button getBtn;
 
-
-    String[] layouts = {"Создать", "Посмотреть созданного питомца"};
+    private Button BtnActv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        ArrayAdapter<String>mAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, layouts);
         setContentView(R.layout.activity_main);
         // дописать из https://github.com/Wyelier/MultiScreen/blob/master/app/src/main/java/com/example/multiscreen/MainActivity.java
 
@@ -48,10 +46,20 @@ public class MainActivity extends AppCompatActivity {
         mEditText = findViewById(R.id.editText);
         mImageView = findViewById(R.id.imageView);
         getBtn = findViewById(R.id.button);
+        BtnActv = findViewById(R.id.btnActv);
 
         mProgressBar.setVisibility(View.INVISIBLE);
 
         PetAPI petAPI = PetAPI.retrofit.create(PetAPI.class);
+
+        BtnActv.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+            finish();
+        });
+
+
         getBtn.setOnClickListener(v -> {
 
             mProgressBar.setVisibility(View.VISIBLE);
