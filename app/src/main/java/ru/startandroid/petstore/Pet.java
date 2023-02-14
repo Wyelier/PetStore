@@ -7,6 +7,11 @@ public class Pet {
     private String name;
     private List<String> photoUrls;
 
+//    public Pet(int id=, String name, List<String> photoUrl) {
+//        this.id = id;
+//        this.name = name;
+//        this.photoUrls = photoUrl;
+//    }
 
     public int getId() {
         return id;

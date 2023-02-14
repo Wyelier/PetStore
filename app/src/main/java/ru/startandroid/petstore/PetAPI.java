@@ -14,16 +14,14 @@ public interface PetAPI {
     @GET("pet/{id}")
     Call<Pet> getPets(@Path("id") String id);
 
+    @POST("pet")
+    Call<Pet> createPets(@Body Pet pet);
+
     Retrofit retrofit = new Retrofit.Builder()
             .baseUrl("https://petstore.swagger.io/v2/")
             .addConverterFactory(GsonConverterFactory.create())
             .build();
 
-    @POST("pet")
-    Call<Pet> createPet(@Body Pet pet);
 
-    Retrofit retrofit2 = new Retrofit.Builder()
-            .baseUrl("https://petstore.swagger.io/v2/")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build();
+
 }
