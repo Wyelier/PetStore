@@ -29,6 +29,9 @@
         <activity
             android:name=".SecondActivity">
         </activity>
+        <activity
+            android:name=".LoginActivity">
+        </activity>
     </application>
 
 </manifest>
