@@ -35,8 +35,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        // дописать из https://github.com/Wyelier/MultiScreen/blob/master/app/src/main/java/com/example/multiscreen/MainActivity.java
-
 
         mProgressBar = findViewById(R.id.progressBar);
         mTextView = findViewById(R.id.textView);
