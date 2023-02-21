@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,28 +17,32 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
-    private EditText LoginEditText;
-    private EditText PassEditText;
-    private Button btnLog;
-    private Button btnReg;
-    String userNameText;
-    String userPassword;
+    private EditText LoginEditText, PassEditText;
+    private Button btnLog, btnReg;
+    private ImageButton btnMyAcc;
+    String userNameText, userPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_layout);
 
-        LoginEditText = findViewById(R.id.editTextLogin);
-        PassEditText = findViewById(R.id.editTextPass);
-        btnLog = findViewById(R.id.btnLogin);
-        btnReg = findViewById(R.id.btnReg);
+        LoginEditText = (EditText) findViewById(R.id.editTextLogin);
+        PassEditText = (EditText) findViewById(R.id.editTextPass);
+        btnLog = (Button) findViewById(R.id.btnLogin);
+        btnReg = (Button) findViewById(R.id.btnReg);
+        btnMyAcc = (ImageButton) findViewById(R.id.btnLK);
 
         UserAPI userAPI = UserAPI.retrofit2.create(UserAPI.class);
 
+        btnMyAcc.setOnClickListener(v -> {
+            Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+            startActivity(intent);
+            finish();
+        });
+
         btnReg.setOnClickListener(v -> {
             Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
             finish();
         });
