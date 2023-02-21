@@ -5,12 +5,13 @@
     android:id="@+id/btn"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
     <EditText
         android:id="@+id/editTextLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:padding="12dp"
         android:layout_marginBottom="8dp"
+        android:background="@drawable/round_bg"
         android:ems="10"
         android:hint="Логин"
         android:inputType="textPersonName"
@@ -19,14 +20,16 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/editTextPass"
+        android:id="@+id/editTextFirstN"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="100dp"
+        android:padding="12dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/round_bg"
         android:ems="10"
-        android:hint="Пароль"
-        android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/btnRegister"
+        android:hint="Ваше имя"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/editTextLastN"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -35,6 +38,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
+        android:padding="12dp"
+        android:background="@drawable/round_bg"
         android:ems="10"
         android:hint="Ваша фамилия"
         android:inputType="textPersonName"
@@ -43,14 +48,16 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/editTextFirstN"
+        android:id="@+id/editTextPass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="100dp"
+        android:padding="12dp"
+        android:background="@drawable/round_bg"
         android:ems="10"
-        android:hint="Ваше имя"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/editTextLastN"
+        android:hint="Пароль"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toTopOf="@+id/btnRegister"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -60,9 +67,9 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="100dp"
         android:text="Зарегистрироваться"
+        android:background="@drawable/round_bg"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -71,6 +78,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:text="К логину"
+        android:background="@drawable/round_bg"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
